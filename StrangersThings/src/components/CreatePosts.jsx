@@ -15,7 +15,14 @@ export default function NewPost() {
     return(
         <div>
             <h3> Make Post</h3>
-            <form>
+            <form
+            onSubmit={async (e) => {
+                e.preventDefault();
+                const result = await createPost(title, description,price, token);
+                console.log(result);
+                navigate("/");
+            }} 
+            >
                 <input 
                 type="text"
                 placeholder="title"
